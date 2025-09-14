@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Tracker</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Daily Routine Tracker</h1>
+            <p>Track your habits and visualize your progress throughout the year</p>
+        </header>
+
+        <nav class="view-nav">
+            <ul>
+                <li><a href="#" id="daily-view-btn" class="active">Daily View</a></li>
+                <li><a href="#" id="monthly-view-btn">Monthly View</a></li>
+                <li><a href="#" id="yearly-view-btn">Yearly Analytics</a></li>
+            </ul>
+        </nav>
+
+        <!-- Daily View -->
+        <section id="daily-view" class="view-section active">
+            <div class="date-navigator">
+                <button class="nav-btn" id="prev-day"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="current-date">Saturday, May 3, 2025</h2>
+                <button class="nav-btn" id="next-day"><i class="fas fa-chevron-right"></i></button>
+                <button class="today-btn" id="today-btn-daily">Today</button>
+            </div>
+
+            <div class="daily-content">
+                <div class="routine-container">
+                    <div class="routine-header">
+                        <h3>Daily Routine</h3>
+                        <button id="reset-btn" class="reset-btn">Reset</button>
+                    </div>
+                    <div class="task-list" id="daily-task-list">
+                        <div class="task-item">
+                            <input type="checkbox" id="task-1">
+                            <label for="task-1">Morning meditation (10 min)</label>
+                            <button class="delete-task"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task-2">
+                            <label for="task-2">Drink water (8 glasses)</label>
+                            <button class="delete-task"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task-3">
+                            <label for="task-3">Exercise (30 min)</label>
+                            <button class="delete-task"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task-4">
+                            <label for="task-4">Read (20 pages)</label>
+                            <button class="delete-task"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" id="task-5">
+                            <label for="task-5">Plan tomorrow's tasks</label>
+                            <button class="delete-task"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="add-task">
+                        <input type="text" id="new-task" placeholder="Add a new task...">
+                        <button id="add-task-btn">Add</button>
+                    </div>
+                </div>
+
+                <div class="accomplishments-container">
+                    <h3>Accomplishments <span class="completion-percentage">20%</span></h3>
+                    <div class="completed-tasks" id="completed-tasks">
+                        <div class="completed-task">
+                            <span class="check-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>Morning meditation (10 min)</span>
+                        </div>
+                    </div>
+
+                    <div class="daily-stats">
+                        <h4>Daily Stats</h4>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <p>Tasks Completed:</p>
+                                <h5>1</h5>
+                            </div>
+                            <div class="stat-item">
+                                <p>Tasks Remaining:</p>
+                                <h5>4</h5>
+                            </div>
+                            <div class="stat-item">
+                                <p>Streak:</p>
+                                <h5>0 days</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monthly View -->
+        <section id="monthly-view" class="view-section">
+            <div class="date-navigator">
+                <button class="nav-btn" id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="current-month">May 2025</h2>
+                <button class="nav-btn" id="next-month"><i class="fas fa-chevron-right"></i></button>
+                <button class="today-btn" id="this-month-btn">This Month</button>
+            </div>
+
+            <div class="calendar">
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days" id="calendar-days">
+                    <!-- Calendar days -->
+                </div>
+            </div>
+
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="legend-color no-tasks"></div>
+                    <span>No tasks</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color all-completed"></div>
+                    <span>All completed</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color partially-completed"></div>
+                    <span>Partially completed</span>
+                </div>
+            </div>
+
+            <div class="monthly-performance">
+                <h3>Monthly Performance</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <p>Days with Activity:</p>
+                        <h5 id="days-with-activity">0</h5>
+                    </div>
+                    <div class="stat-item">
+                        <p>Perfect Days:</p>
+                        <h5 id="perfect-days">0</h5>
+                    </div>
+                    <div class="stat-item">
+                        <p>Total Tasks Completed:</p>
+                        <h5 id="monthly-tasks-completed">0</h5>
+                    </div>
+                    <div class="stat-item">
+                        <p>Completion Rate:</p>
+                        <h5 id="completion-rate">0%</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yearly View -->
+        <section id="yearly-view" class="view-section">
+            <div class="date-navigator">
+                <button class="nav-btn" id="prev-year"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="current-year">2025</h2>
+                <button class="nav-btn" id="next-year"><i class="fas fa-chevron-right"></i></button>
+                <button class="today-btn" id="this-year-btn">This Year</button>
+            </div>
+
+            <div class="yearly-charts">
+                <div class="chart-container">
+                    <h3>Monthly Completion Rates</h3>
+                    <div class="chart" id="monthly-completion-chart">
+                        <canvas id="completion-canvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Task Completion Trends</h3>
+                    <div class="chart" id="task-trends-chart">
+                        <canvas id="trends-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="yearly-summary">
+                <h3>Yearly Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Total Days Tracked:</h4>
+                        <p id="total-days-tracked">3</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Perfect Days:</h4>
+                        <p id="yearly-perfect-days">0</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Total Tasks Completed:</h4>
+                        <p id="yearly-tasks-completed">0</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Longest Streak:</h4>
+                        <p id="longest-streak">0 days</p>
+                    </div>
+                </div>
+
+                <div class="year-glance">
+                    <h4>Year at a Glance</h4>
+                    <div class="activity-grid" id="activity-grid">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script> -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="index.js"></script>
+</body>
+</html>
