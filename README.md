@@ -19,4 +19,3 @@ A simple and interactive web-based application built using HTML, CSS, and JavaSc
 Frontend: HTML, CSS, JavaScript
 
 Storage: LocalStorage (browser-based persistence)
-Chandu nkn leyyyyyyyyy chinnu
